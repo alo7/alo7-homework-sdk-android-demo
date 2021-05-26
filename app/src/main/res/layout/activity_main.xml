@@ -31,6 +31,14 @@
             android:layout_marginTop="16dp"
             android:hint="请输入homeworkId" />
 
+
+        <EditText
+            android:id="@+id/et_clazz_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="输入clazz id，多个id请以英文 ' , '分割" />
+
         <Button
             android:id="@+id/btn_assign_homework"
             android:layout_width="match_parent"
@@ -38,6 +46,14 @@
             android:layout_marginTop="16dp"
             android:onClick="assignHomework"
             android:text="@string/assign_homework" />
+
+        <Button
+            android:id="@+id/btn_assign_with_clazz_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="assignHomeworkWithClazzId"
+            android:text="@string/assign_homework_with_clazz_id" />
 
         <Button
             android:id="@+id/btn_check_homework"

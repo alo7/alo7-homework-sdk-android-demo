@@ -46,5 +46,5 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.11'
     implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.1.0'
     implementation 'com.airbnb.android:lottie:3.4.1'
-    implementation 'com.alo7.android:homeworksdk:0.1.0-SNAPSHOT'
+    implementation 'com.alo7.android:homeworksdk:0.2.0-SNAPSHOT'
 }

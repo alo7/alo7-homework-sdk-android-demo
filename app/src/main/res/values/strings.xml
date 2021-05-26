@@ -3,4 +3,5 @@
     <string name="assign_homework">老师布置作业</string>
     <string name="check_homework">老师检查作业</string>
     <string name="do_homework">学生查看作业</string>
+    <string name="assign_homework_with_clazz_id">布置作业（携带clazzId）</string>
 </resources>

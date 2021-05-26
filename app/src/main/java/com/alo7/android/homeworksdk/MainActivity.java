@@ -1,6 +1,5 @@
 package com.alo7.android.homeworksdk;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,10 +10,10 @@ import com.alo7.android.homework.Alo7HomeworkSDK;
 import com.alo7.android.homework.ResultCallback;
 import com.alo7.android.homework.utils.LogUtils;
 import com.alo7.android.homework.utils.ToastUtils;
-import com.alo7.android.homework.web.CommonConstants;
-import com.alo7.android.homework.web.UniversalWebViewActivity;
 import com.alo7.android.homeworksdk.loading.LoadingUtils;
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
+
+import java.util.Arrays;
 
 public class MainActivity extends RxAppCompatActivity {
     private final LoadingUtils dialogUtils = new LoadingUtils();
@@ -96,6 +95,34 @@ public class MainActivity extends RxAppCompatActivity {
         }
         dialogUtils.showLoading(this);
         Alo7HomeworkSDK.showHomework(this, homeworkId, token, new ResultCallback() {
+            @Override
+            public void onSuccess() {
+                dialogUtils.dismiss();
+            }
+
+            @Override
+            public void onError(Alo7Error error) {
+                dialogUtils.dismiss();
+                LogUtils.e("Main", error.getErrorMessage());
+                ToastUtils.showToast("错误码：" + error.getErrorCode() + " 错误信息：" + error.getErrorMessage());
+            }
+        });
+    }
+
+    public void assignHomeworkWithClazzId(View view) {
+        String token = ((EditText) findViewById(R.id.et_teacher_token)).getText().toString().trim();
+        if (TextUtils.isEmpty(token)) {
+            ToastUtils.showToast("请输入teacher token");
+            return;
+        }
+        String clazzIds = ((EditText) findViewById(R.id.et_clazz_id)).getText().toString().trim();
+        if (TextUtils.isEmpty(clazzIds)) {
+            ToastUtils.showToast("请输入班级Id");
+            return;
+        }
+        String[] ids = clazzIds.split(",");
+        dialogUtils.showLoading(this);
+        Alo7HomeworkSDK.assignHomeworkWithClazzId(this, token, Arrays.asList(ids), new ResultCallback() {
             @Override
             public void onSuccess() {
                 dialogUtils.dismiss();

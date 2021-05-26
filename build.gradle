@@ -22,7 +22,7 @@ allprojects {
             url "https://maven.pkg.github.com/alo7/android-homework-sdk"
             credentials {
                 username = "homework-sdk-user"
-                password = "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"
+                password = "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"
             }
         }
 
